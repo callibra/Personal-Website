@@ -3,14 +3,14 @@ import './Shapes.css';
 
 // Importing local SVG files
 import jsIcon from '../../assets/icons/js.svg';
-import tsIcon from '../../assets/icons/ts.svg';
+import taillwindcssIcon from '../../assets/icons/taillwindcss.svg';
 import reactIcon from '../../assets/icons/react.svg';
 import nodejsIcon from '../../assets/icons/nodejs.svg';
-import linuxIcon from '../../assets/icons/linux.svg';
+import htmlIcon from '../../assets/icons/html.svg';
 import expressIcon from '../../assets/icons/express.svg';
 import wordpressIcon from '../../assets/icons/wordpress.svg';
-import githubIcon from '../../assets/icons/github.svg';
 import gitIcon from '../../assets/icons/git.svg';
+import cssIcon from '../../assets/icons/css.svg';
 import mongodbIcon from '../../assets/icons/mongodb.svg';
 // import pythonIcon from '../../assets/icons/python.svg'; 
 // import nextjsIcon from '../../assets/icons/nextjs.svg';
@@ -23,14 +23,14 @@ import mongodbIcon from '../../assets/icons/mongodb.svg';
 const Shapes = () => {
   const icons = [
     jsIcon,
-    tsIcon,
+    taillwindcssIcon,
     reactIcon,
     nodejsIcon,
-    linuxIcon,
+    htmlIcon,
     expressIcon,
     wordpressIcon,
-    githubIcon,
     gitIcon,
+    cssIcon,
     mongodbIcon,
     // pythonIcon, 
     // nextjsIcon,
