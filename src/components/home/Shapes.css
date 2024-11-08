@@ -1,0 +1,68 @@
+.shapes {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .shape {
+    position: absolute;
+  }
+  
+  .icon {
+    position: absolute; /* Position icons absolutely */
+    width: 30px; /* Set a fixed size for the icons */
+    height: 30px; /* Set a fixed size for the icons */
+    animation: rotate 10s linear infinite, float 5s ease-in-out infinite alternate;
+  }
+  
+  .s1 { left: 15%; top: 10%; }
+  .s2 { left: 15%; top: 30%; }
+  .s3 { left: 15%; bottom: 45%; }
+  .s4 { left: 15%; bottom: 15%; }
+  .s5 { left: 50%; top: 10%; }
+  .s6 { left: 50%; bottom: 15%; }
+  .s7 { top: 30%; right: 15%; }
+  .s8 { right: 15%; bottom: 15%; }
+  .s9 { right: 15%; top: 10%; }
+  .s10 { top: 50%; right: 15%; }
+  /* .s11 { bottom: 25%; right: 1%; }
+  .s12 { left: 1%; top: 40%; }
+  .s13 { left: 30%; top: 25%; }
+  .s14 { right: 10%; top: 30%; }
+  .s15 { bottom: 20%; left: 25%; }
+  .s16 { right: 30%; top: 40%; }
+  .s17 { bottom: 10%; right: 5%; } */
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0); /* No movement */
+    }
+    25% {
+      transform: translate(-5px, -5px); /* Move slightly left and up */
+    }
+    50% {
+      transform: translate(0, -5px); /* Move up */
+    }
+    75% {
+      transform: translate(5px, 5px); /* Move slightly right and down */
+    }
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg); /* Full rotation */
+    }
+  }
+
+  @media screen and (max-width: 388px) {
+    .icon {
+      display: none;
+    }
+  }
+  
+  /* /////////////////////////////// 888 ////////////////////////////////// */

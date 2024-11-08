@@ -1,0 +1,51 @@
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-title{
+  font-size: 15px;
+  margin-bottom: 1rem;
+}
+
+/* //////////////// 1van4e /////////////////////////////////// */
+
+@keyframes colorChangeIva {
+  0% {
+      background-position: 100% 0;
+  }
+  100% {
+      background-position: 0 0;
+  }
+}
+
+.blank-link {
+  background: linear-gradient(to right, red,red, yellow,yellow,red,red, yellow,yellow, red,red,yellow,yellow);
+  -webkit-background-clip: text;
+  background-clip: text; 
+  color: transparent;
+  text-decoration: none;
+  margin: 2px;
+  background-size: 200% 100%;
+  color: transparent; /* Make text color transparent to show gradient */
+  animation: colorChangeIva 15s linear infinite;
+}
+
+.blank-link:hover {
+  background: linear-gradient(to left, red, yellow);
+  -webkit-background-clip: text;
+  background-clip: text; 
+  color: transparent;
+  transition-duration: 1s;
+  /* font-size: 19px; */
+}
+
+/* //////////////// 1van4e /////////////////////////////////// */
+
+@media screen and (max-width: 420px) {
+  .footer-title {
+    text-align: center; 
+    font-size: 12px;
+  }
+}
+
