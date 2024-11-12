@@ -39,9 +39,7 @@ const About = () => {
                         <p className="about__description">
                             <span className="colored-word">• I'm a</span> web developer with a focus on the MERN stack, but still exploring other technologies and frameworks that catch my interest!<br /><br />
                             <span className="colored-word">• I started</span> my coding journey almost exactly a two year ago and now I'm working full time and doing freelance projects on the side for my friends.<br /><br />
-                            <span className="colored-word">• I have</span> 3 years experience in Wordpress CMS and MERN Application.<br /><br />
                             <span className="colored-word">• I'm open</span> to Job opportunities where I can contribute, learn and grow. If you have a good opportunity that matches my skills and experience then don't hesitate to contact me.<br /><br />
-                            <span className="colored-word">• Thanks</span> to visit my portfolio web site!
                         </p>
                         <h3 className='skills-title'><SiSkillshare size={25} style={{ verticalAlign: 'middle' }}/> Skills :</h3>
                         <ul className="about__list">

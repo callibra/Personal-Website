@@ -23,7 +23,7 @@ const data = [
     image: Image1,
     title: "Frontend Development",
     description:
-      "Experienced in front-end development with React.js, building dynamic web apps. Skilled in using Bootstrap for responsive design and Tailwind CSS for utility-first styling, creating modern and clean user interfaces.",
+      "Front-end development with React.js, building dynamic web apps. Skilled in using Bootstrap for responsive design and Tailwind CSS for utility-first styling, creating modern and clean user interfaces.",
     skills: [
       <img src={reactIcon} alt="React" style={{ width: '35px', height: '35px' }} />,
       <img src={bootstrapIcon} alt="Bootstrap" style={{ width: '35px', height: '35px' }} />,
@@ -35,7 +35,7 @@ const data = [
     image: Image2,
     title: "Backend Development",
     description:
-      "Experienced in backend development with Node.js and Express, building scalable server-side applications. Proficient in using Mongoose for MongoDB integration and skilled in building and managing APIs.",
+      "Backend development with Node.js and Express, building scalable server-side applications. Proficient in using Mongoose for MongoDB integration and skilled in building and managing APIs.",
     skills: [
       <img src={nodejsIcon} alt="Node.js" style={{ width: '35px', height: '35px' }} />,
       <img src={expressIcon} alt="Express" style={{ width: '35px', height: '35px' }} />,
@@ -59,7 +59,7 @@ const data = [
     image: Image4,
     title: "Web Pen Testing & Linux Admin",
     description:
-     "Experienced in web penetration testing, utilizing tools like Kali Linux for security assessments and vulnerability analysis. Proficient in configuring, managing, and securing web servers, including Nginx, on various Linux distributions, ensuring optimal performance and security.",
+     "Web penetration testing, utilizing tools like Kali Linux for security assessments and vulnerability analysis. Proficient in configuring, managing, and securing web servers, including Nginx, on various Linux distributions, ensuring optimal performance and security.",
     skills: [
       <img src={linuxIcon} alt="Linux" style={{ width: '35px', height: '35px' }} />,
       <img src={kaliIcon} alt="Kali Linux" style={{ width: '35px', height: '35px' }} />,

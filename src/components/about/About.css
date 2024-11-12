@@ -140,13 +140,14 @@
 }
 
 .about__boxes {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   column-gap: 1.875rem;
   margin-top: 4.35rem;
 }
 
 .about__box {
   display: flex;
+  justify-content: center;
   column-gap: 1.5rem;
 }
 
@@ -163,7 +164,7 @@
   color: hsl(352.96deg 100% 64.9%); 
   font-weight: bold; 
   margin-right: 5px; 
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .line-hr{
