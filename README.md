@@ -7,7 +7,7 @@
 <div align="left">
     <p>• 🖥️  <span align="center">Personal Website Application</span>&nbsp;
     <a href="https://ivangjorcev.netlify.app" title="Portfolio Application">
-        <img src="https://img.shields.io/badge/Preview-2563EB?logo=googlechrome&logoColor=fff" height="20" align="center"/>
+        <img src="https://img.shields.io/badge/Preview-2563EB?logo=googlechrome&logoColor=fff" height="24" style="vertical-align: middle;"/>
     </a>
     </p>
 </div>
