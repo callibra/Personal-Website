@@ -1,7 +1,7 @@
 <h2 align="center">🧑 Personal Portfolio Website 🎫</h2>
 <p align="left">• 📢 Personal Portfolio Website made with React, Node JS, NPM Packages "@emailjs/browser" for Send Email Directly From Your Code.</p>
 <br>
-<a href="#"><img src="portfolio2.png" width="100%" height="100%" align="center"/></a>
+<a href="#"><img src="website-personal.png" width="100%" height="100%" align="center"/></a>
 <br>
 <h2 align="left">Live Preview: 🕹️ </h2>
 <div align="left">
