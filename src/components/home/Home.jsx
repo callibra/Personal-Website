@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.css';
-import Me from '../../assets/a.jpg';
+import CodeBackground from '../../assets/code.gif';
+import TypingBackground from '../../assets/codereditor.gif';
 import HeaderSocials from './HeaderSocials';
 import ScrollDown from './ScrollDown';
 import Shapes from './Shapes';
@@ -26,9 +27,12 @@ const Home = () => {
 
     return (
         <section className="home container" id='home'>
+            <div className="hero-background" aria-hidden="true">
+                <img className="hero-background__image hero-background__image--first" src={CodeBackground} alt="" />
+                <img className="hero-background__image hero-background__image--second" src={TypingBackground} alt="" />
+            </div>
             <div className="intro">
-                <img src={Me} alt="" className='home__img' />
-                <h1 className="home__name">Ivan Gjorcev</h1>
+                <h1 className="home__name">Ivan <strong>Gjorcev</strong></h1>
                 {/* <span className="home__education">I'm a Software Engineer</span> */}
                 <div className="typewriter-container"> {/* Add a container for styling */}
                    <Typewriter options={{strings: strings.map((text, index) => ( `<span style="color: ${colors[index]}">${text}</span>`)),

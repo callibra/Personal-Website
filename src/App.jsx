@@ -41,8 +41,8 @@ function App() {
   width="20"
   className="scroll-to-top"
   style={{
-  borderRadius: "90px",
-  backgroundColor: "hsl(352.96deg 100% 64.9%)",
+  borderRadius: "8px",
+  backgroundColor: "var(--first-color)",
   transition: "transform 0.3s ease", 
   }}
 />

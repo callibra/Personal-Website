@@ -1,51 +1,71 @@
 .footer {
+  position: relative;
+  padding: 1.25rem clamp(1.25rem, 5vw, 5rem);
+  background: var(--section-color);
+}
+
+.footer::before {
+  position: absolute;
+  top: 0;
+  right: max(calc((100% - 1120px) / 2), 5vw);
+  left: max(calc((100% - 1120px) / 2), 5vw);
+  height: 1px;
+  background: linear-gradient(90deg, var(--first-color), var(--border-color) 48%, transparent);
+  content: "";
+  opacity: 0.7;
+}
+
+.footer__inner {
   display: flex;
-  justify-content: center;
+  max-width: 1120px;
+  min-height: 64px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
 }
 
-.footer-title{
-  font-size: 15px;
-  margin-bottom: 1rem;
+.footer-title,
+.footer__meta {
+  color: var(--title-color);
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
-/* //////////////// 1van4e /////////////////////////////////// */
+.footer-title {
+  margin: 0;
+}
 
-@keyframes colorChangeIva {
-  0% {
-      background-position: 100% 0;
-  }
-  100% {
-      background-position: 0 0;
-  }
+.footer__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  background: var(--container-color);
 }
 
 .blank-link {
-  background: linear-gradient(to right, red,red, yellow,yellow,red,red, yellow,yellow, red,red,yellow,yellow);
-  -webkit-background-clip: text;
-  background-clip: text; 
-  color: transparent;
-  text-decoration: none;
-  margin: 2px;
-  background-size: 200% 100%;
-  color: transparent; /* Make text color transparent to show gradient */
-  animation: colorChangeIva 15s linear infinite;
+  color: var(--first-color);
+  font-weight: 700;
+  transition: color 0.2s ease;
 }
 
 .blank-link:hover {
-  background: linear-gradient(to left, red, yellow);
-  -webkit-background-clip: text;
-  background-clip: text; 
-  color: transparent;
-  transition-duration: 1s;
-  /* font-size: 19px; */
+  color: var(--title-color);
 }
 
-/* //////////////// 1van4e /////////////////////////////////// */
+@media screen and (max-width: 520px) {
+  .footer__inner {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
+    padding-inline: 0;
+  }
 
-@media screen and (max-width: 420px) {
-  .footer-title {
-    text-align: center; 
-    font-size: 12px;
+  .footer__meta {
+    margin-top: 0.2rem;
   }
 }
-

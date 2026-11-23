@@ -21,6 +21,7 @@ const Education = () => {
                         <TabList className="tab__list">
                             {EducationList.map((edu) => (
                                 <Tab className="tab" key={`education-tab-${edu.id}`}>
+                                    <img src={edu.image} alt="" className="education-tile-image" />
                                     <Button>{edu.institution}</Button>
                                 </Tab>
                             ))}

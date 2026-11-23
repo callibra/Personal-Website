@@ -86,7 +86,7 @@ const Contact = (props) => {
                     <p className="contact__details">
                         Don't like forms? Send me an email. 👋
                     </p>
-                    <img src={Image} />
+                    <img src={Image} alt="Illustration of someone working on a laptop" />
                 </div>
 
                 <form onSubmit={submitHandler} className="contact__form">

@@ -1,99 +1,105 @@
 .services__container {
-  grid-template-columns: repeat(2, 2fr);  /* Change from 3 to 4 columns */
-  gap: 1.875rem;
+  grid-template-columns: minmax(0, 1fr);
+  border-top: 0;
 }
 
 .services__card {
-  text-align: center;
-  padding: 1.875rem;
-  border-radius: var(--border-radius);
-  background-color: var(--container-color);
-  transition: all 0.3s ease-in-out;
+  display: grid;
+  grid-template-columns: 64px minmax(190px, 0.75fr) minmax(0, 1.25fr);
+  gap: 0.65rem 1.5rem;
+  align-items: start;
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  background: transparent;
+  transition: background 0.2s ease;
 }
 
 .services__card:hover {
-  transform: translateY(-10px);
-}
-
-.services__card:nth-child(1) {
-  background-color: rgb(108, 108, 229);
-  box-shadow: 0 5px 20px 0 rgb(108, 108, 229 / 50%);
-}
-
-.services__card:nth-child(2) {
-  background-color: rgb(249, 215, 76);
-  box-shadow: 0 5px 20px 0 rgb(249, 215, 76 / 50%);
-}
-
-.services__card:nth-child(3) {
-  background-color: rgb(249, 123, 139);
-  box-shadow: 0 5px 20px 0 rgb(249, 123, 139 / 50%);
-}
-
-.services__card:nth-child(4) {
-  background-color: rgb(57, 123, 161);
-  box-shadow: 0 5px 20px 0 rgb(249, 123, 139 / 50%);
+  background: var(--container-color);
 }
 
 .services__img {
-  margin-bottom: 1.25rem;
+  width: 48px;
+  height: 48px;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  object-fit: contain;
 }
 
 .services__title {
-  font-size: var(--h3-font-size);
-  margin-bottom: 1rem;
-  color: #fff;
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0.25rem 0 0;
+  color: var(--title-color);
+  font-size: 1.05rem;
 }
 
 .services__description {
-  color: #f8f9fa;
-}
-/* ////////////////////////////// 2 //////////////////////////////// */
-.services__card:nth-child(2) .services__title {
-  color: var(--title-color);
-}
-
-.services__card:nth-child(2) .services__description {
-  color: var(--title-color);
+  grid-column: 3;
+  grid-row: 1;
+  max-width: 650px;
+  color: var(--text-color);
+  font-size: 0.92rem;
+  line-height: 1.75;
 }
 
-[data-theme="dark"] .services__card:nth-child(2) .services__title,
-[data-theme="dark"] .services__card:nth-child(2) .services__description {
-  color: var(--body-color);
+.services__card > br {
+  display: none;
 }
 
-/* ////////////////////////////// 3 //////////////////////////////// */
-.services__card:nth-child(3) .services__title {
-  color: var(--title-color);
+.services__skills {
+  grid-column: 3;
+  grid-row: 2;
+  justify-content: flex-start !important;
+  gap: 0.55rem !important;
+  margin-top: 0.25rem !important;
 }
 
-.services__card:nth-child(3) .services__description {
-  color: var(--title-color);
+.services__skill {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  background: var(--body-color);
 }
 
-[data-theme="dark"] .services__card:nth-child(3) .services__title,
-[data-theme="dark"] .services__card:nth-child(3) .services__description {
-  color: var(--body-color);
+.services__skill img {
+  width: 18px !important;
+  height: 18px !important;
+  object-fit: contain;
 }
 
-@media screen and (max-width: 1024px) {
-  .services__container {
-    grid-template-columns: repeat(2, 330px); /* For smaller screens, show 2 services */
-    justify-content: center;
-    row-gap: 1.875rem;
+@media screen and (max-width: 760px) {
+  .services__card {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 0.45rem 1rem;
+    padding: 1.25rem 0.5rem;
   }
-}
 
-@media screen and (max-width: 768px) {
-  .services__container {
-    grid-template-columns: 310px; /* For even smaller screens, show 1 service */
-    justify-content: center;
-    row-gap: 1.875rem;
+  .services__img {
+    width: 40px;
+    height: 40px;
+    grid-row: 1 / span 3;
   }
-}
 
-@media screen and (max-width: 350px) {
-  .services__container {
-    grid-template-columns: 1fr; /* For mobile, show 1 service per row */
+  .services__title,
+  .services__description,
+  .services__skills {
+    grid-column: 2;
+  }
+
+  .services__title {
+    grid-row: 1;
+  }
+
+  .services__description {
+    grid-row: 2;
+  }
+
+  .services__skills {
+    grid-row: 3;
+    flex-wrap: wrap;
   }
 }

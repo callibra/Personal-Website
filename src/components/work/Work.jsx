@@ -21,6 +21,7 @@ const Work = () => {
                         <TabList className="tab__list">
                            {WorkList.map((experience) => (
                                <Tab className="tab" key={`company-${experience.id}`}>
+                                  <img src={experience.image} alt="" className="experience-tile-image" />
                                   <Button>{experience.company}</Button>
                                </Tab>
                             ))}

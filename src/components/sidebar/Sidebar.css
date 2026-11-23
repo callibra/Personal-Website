@@ -1,101 +1,160 @@
-aside {
-  position: fixed;
-  left: 0;
+.aside {
+  position: sticky;
+  z-index: 20;
   top: 0;
-  background-color: var(--body-color);
-  border-right: 1px solid var(--border-color);
-  padding: 2.5rem 0.5rem 2.5rem 0.5rem;
-  width: 110px;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  height: 76px;
+  min-height: 76px;
+  align-items: center;
   justify-content: space-between;
-  z-index: 11;
-  transition: 0.3s;
+  padding: 0 clamp(1.25rem, 5vw, 5rem);
+  border-bottom: 1px solid var(--border-color);
+  background: color-mix(in srgb, var(--body-color) 94%, transparent);
+  backdrop-filter: blur(16px);
 }
 
-.nav-img{
-  height: 90px;
-  width: 90px;
-  border-radius: 200px; 
-  border: 2px solid rgba(121, 121, 121, 0.801);
-  object-fit: cover; /* Ensure the image covers the container without distortion */
+.nav__logo {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--title-color);
+}
+
+.nav-img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+.nav,
+.nav__menu {
+  width: auto;
 }
 
 .nav__list {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  row-gap: 1rem;
+  gap: clamp(0.1rem, 0.6vw, 0.6rem);
 }
 
 .nav__link {
-  font-size: 1.5rem;
-  color: var(--title-color);
-  font-weight: var(--font-bold);
-  transition: 0.3s;
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0 0.6rem;
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 0.79rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.nav__link svg {
+  flex: 0 0 auto;
+  font-size: 1.08rem;
 }
 
 .nav__link:hover {
-  color: hsl(352.96deg 100% 64.9%);
+  background: var(--section-color);
+  color: var(--first-color);
 }
 
-.nav__footer{
+.nav__footer {
   display: flex;
-  flex-direction: column;
+  flex: 0 0 auto;
   align-items: center;
 }
 
 .footer__button {
-  background-color: transparent;
-}
-
-.copyright {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-color);
+  background: transparent;
   color: var(--title-color);
-  font-size: var(--small-font-size);
-  transform: rotate(-180deg);
-  writing-mode: vertical-rl;
 }
 
 .nav__toggle {
-  position: fixed;
-  top: 1.25rem;
-  left: 1.875rem;
-  cursor: pointer;
-  height: 40px;
-  width: 40px;
-  background-color: var(--body-color);
-  border: 2px solid var(--border-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-  transition: 0.3s;
-  font-size: 1rem;
+  display: none;
 }
 
-[data-theme="dark"] .nav__toggle {
-  border: 1px solid var(--title-color);
-}
-
-[data-theme="dark"] .nav__toggle > svg {
-  color: var(--title-color);
-}
-
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 900px) and (min-width: 701px) {
   .aside {
-    left: -110px;
+    padding-inline: 1rem;
+  }
+
+  .nav__link {
+    gap: 0.25rem;
+    padding-inline: 0.35rem;
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .aside {
+    height: 68px;
+    min-height: 68px;
+    padding-inline: 1rem;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    padding: 0.75rem 1rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--body-color);
+    box-shadow: var(--shadow);
+  }
+
+  .aside.show-menu .nav {
+    display: block;
+  }
+
+  .nav__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.4rem;
+  }
+
+  .nav__link {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0 0.75rem;
+    border: 1px solid var(--border-color);
+    background: var(--container-color);
+    font-size: 0.8rem;
+  }
+
+  .nav__footer {
+    margin-right: 3.25rem;
+    margin-left: auto;
   }
 
   .nav__toggle {
-    display: flex;
-  }
-
-  .nav__toggle-open {
-    left: 140px;
-  }
-
-  .show-menu {
-    left: 0;
+    position: fixed;
+    z-index: 22;
+    top: 0.8rem;
+    right: 1rem;
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--body-color);
+    color: var(--title-color);
+    font-size: 1.2rem;
   }
 }

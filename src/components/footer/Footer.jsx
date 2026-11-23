@@ -5,9 +5,15 @@ const Footer = () => {
 
 
     return (
-        <div className="footer">
-            <h3 className='footer-title'>&copy; {new Date().getFullYear()} Ivan Gjorcev<a href="#" rel="noopener noreferrer" className="blank-link"> 1van4e</a>. All rights reserved.</h3>
-        </div>
+        <footer className="footer">
+            <div className="footer__inner">
+                <h3 className="footer-title">&copy; {new Date().getFullYear()} Ivan Gjorcev</h3>
+                <div className="footer__meta">
+                    <a href="#" rel="noopener noreferrer" className="blank-link">1van4e</a>
+                    <span className="footer__rights">. All rights reserved.</span>
+                </div>
+            </div>
+        </footer>
     )
 }
 

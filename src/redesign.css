@@ -1,0 +1,736 @@
+:root {
+  --first-color: #5b63d9;
+  --title-color: #202334;
+  --text-color: #697083;
+  --body-color: #f7f8fc;
+  --container-color: #fff;
+  --section-color: #eef0f8;
+  --hero-color: #f7f8fc;
+  --border-color: #e4e6ef;
+  --shadow: 0 16px 40px rgb(34 40 75 / 8%);
+  --contrast-color: #fff;
+}
+
+[data-theme="dark"] {
+  --first-color: #a8adff;
+  --title-color: #f1f2fb;
+  --text-color: #b3b6c6;
+  --body-color: #151621;
+  --container-color: #1e2030;
+  --section-color: #191a27;
+  --hero-color: #151621;
+  --border-color: #303247;
+  --shadow: 0 16px 40px rgb(0 0 0 / 20%);
+  --contrast-color: #151621;
+}
+
+body { background: var(--body-color); line-height: 1.7; }
+.aside { position: sticky; top: 0; width: 100%; height: 76px; min-height: 76px; padding: 0 clamp(1rem, 5vw, 4rem); border-bottom: 1px solid var(--border-color); background: color-mix(in srgb, var(--body-color) 94%, transparent); backdrop-filter: blur(14px); }
+.nav__logo { width: 42px; height: 42px; flex-basis: 42px; border-radius: 12px; }
+.nav__list { gap: clamp(.1rem, .7vw, .7rem); }
+.nav__link { min-height: 42px; padding: 0 .65rem; border-radius: 9px; font-size: .8rem; }
+.nav__link:hover { background: var(--section-color); }
+.footer__button { border-radius: 50%; }
+.main { margin-left: 0; }
+.section.container { padding: clamp(4rem, 8vw, 6.5rem) max(calc((100% - 1080px) / 2), 5vw); }
+main > section.section:nth-of-type(even) { background: var(--section-color); }
+.section__title { margin-bottom: 2.5rem; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.055em; }
+.section__title::before { width: 42px; height: 4px; border-radius: 9px; }
+.btn { min-height: 48px; border-radius: 9px; box-shadow: 0 7px 18px color-mix(in srgb, var(--first-color) 18%, transparent); }
+.home.container { width: min(100% - 3rem, 1120px); min-height: min(660px, calc(100vh - 110px)); margin: 1.5rem auto 2rem; padding: clamp(2rem, 6vw, 5rem); border: 1px solid var(--border-color); border-radius: 28px; background: var(--container-color); }
+.home.container::before { opacity: .025; }
+[data-theme="dark"] .home.container::before { opacity: .07; }
+.home__name { font-size: clamp(3.2rem, 6vw, 5.6rem); letter-spacing: -.075em; }
+.home__img { border-radius: 24px; box-shadow: var(--shadow); }
+.typewriter-container { padding: .4rem .75rem; border: 1px solid var(--border-color); border-radius: 999px; background: var(--section-color); font-size: 1rem; }
+.typewriter-wrapper span { color: var(--first-color) !important; }
+.home__social-link { border-radius: 12px; }
+.about__img { border-radius: 20px; }
+.about__box { border: 1px solid var(--border-color); border-left: 3px solid var(--first-color); border-radius: 14px; background: var(--container-color); }
+.services__card { padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 16px; background: var(--container-color); }
+.services__card + .services__card { margin-top: .75rem; }
+.services__skill { border-radius: 9px; }
+.tab__panel, .portfolio__card, .contact__form { border-radius: 18px; box-shadow: var(--shadow); }
+.tab__panel-subtitle, .portfolio__category { border-radius: 999px; }
+.portfolio__thumbnail { border-radius: 13px; }
+.portfolio__button, .portfolio__github-button { border-radius: 12px; }
+.contact__form-input { border-radius: 10px; }
+.contact__info img { border-radius: 18px; }
+.footer { background: var(--section-color); }
+.footer__meta { border-radius: 999px; }
+
+@media (max-width: 900px) and (min-width: 701px) {
+  .aside { padding-inline: 1rem; }
+  .nav__link { gap: .3rem; padding-inline: .4rem; font-size: .68rem; }
+}
+
+@media (max-width: 700px) {
+  .aside { height: 68px; min-height: 68px; padding-inline: 1rem; }
+  .home.container { width: calc(100% - 1.5rem); min-height: 0; margin: .75rem auto 1.5rem; padding: 1.5rem 1.25rem 5rem; border-radius: 22px; }
+  .home__img { border-radius: 18px; }
+  .section.container { padding: 4.5rem 1.25rem; }
+}
+
+/* Match education tiles exactly to the experience tile image treatment. */
+#education .tab__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+#education .education-tile-image { height: 112px; padding: 0; object-fit: cover; }
+#education .education-image { object-fit: cover; padding: 0; }
+@media (max-width: 700px) {
+  #education .education-tile-image { height: 88px; }
+}
+
+/* Image tiles for selectable experience and education entries. */
+#work .tab__list, #education .tab__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; padding: 0; border: 0; background: transparent; }
+#education .tab__list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+#work .tab, #education .tab { overflow: hidden; padding: 0; border: 1px solid var(--border-color); border-radius: 14px; background: var(--container-color); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+#work .tab:hover, #education .tab:hover { transform: translateY(-3px); }
+#work .tab.is-active, #education .tab.is-active { border-color: var(--first-color); background: var(--container-color); box-shadow: 0 8px 24px color-mix(in srgb, var(--first-color) 14%, transparent); }
+#work .tab::before { display: none; }
+#work .experience-tile-image, #education .education-tile-image { display: block; width: 100%; height: 118px; object-fit: cover; background: var(--section-color); }
+#education .education-tile-image { height: 100px; padding: .7rem; object-fit: contain; }
+#work .button, #education .button { min-height: 68px; padding: .85rem; text-align: left; font-size: .85rem; line-height: 1.4; }
+#work .tab.is-active .button, #education .tab.is-active .button { color: var(--first-color); box-shadow: none; }
+#work .tab__panel, #education .tab__panel { grid-template-columns: minmax(140px, .4fr) minmax(0, 1fr); grid-template-areas: "image subtitle" "image title" "image list" "image more"; gap: .65rem 1.5rem; align-items: start; }
+#work .experience-image, #education .education-image { display: block; width: 100%; height: 100%; min-height: 180px; max-height: 250px; grid-area: image; align-self: center; border: 1px solid var(--border-color); border-radius: 10px; background: var(--section-color); object-fit: cover; }
+#education .education-image { object-fit: contain; padding: .75rem; }
+#work .tab__panel-subtitle { align-self: start; justify-self: start; display: inline-flex; min-height: 0; margin: 0; padding: .3rem .75rem; writing-mode: initial; transform: none; }
+#work .tab__panel-title, #education .tab__panel-title { margin: 0; }
+#education .tab__panel-subtitle { justify-self: start; margin: 0; }
+
+@media (max-width: 900px) {
+  #education .tab__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  #work .tab__list { grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; border: 0; }
+  #education .tab__list { grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
+  #work .experience-tile-image, #education .education-tile-image { height: 92px; }
+  #work .button, #education .button { min-height: 58px; padding: .7rem; font-size: .78rem; }
+  #work .tab__panel, #education .tab__panel { grid-template-columns: 1fr; grid-template-areas: "image" "subtitle" "title" "list" "more"; gap: .7rem; }
+  #work .experience-image, #education .education-image { height: 150px; min-height: 0; max-height: 170px; }
+}
+
+/* Education image tiles use the same dimensions and crop as experience tiles. */
+#education .tab__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+#education .education-tile-image { height: 112px; padding: 0; object-fit: cover; }
+@media (max-width: 700px) {
+  #education .education-tile-image { height: 88px; }
+}
+
+/* About Me: remove the portrait column and let the profile content use the full width. */
+.about__container { grid-template-columns: minmax(0, 1fr); }
+.about__data { grid-column: 1; grid-row: 1; }
+.about__img { display: none; }
+.about__list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .45rem 1.1rem; }
+.about__list li { padding: .65rem .75rem; border: 1px solid var(--border-color); border-radius: 10px; background: var(--container-color); }
+.about__boxes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* Restore the original code.gif canvas on the hero, with a CSS-built editor motif on the right. */
+.home.container {
+  background-image: linear-gradient(90deg, color-mix(in srgb, var(--body-color) 58%, transparent), color-mix(in srgb, var(--body-color) 76%, transparent)), url("./assets/code.gif");
+  background-position: center;
+  background-size: cover;
+}
+.home.container::before {
+  inset: auto 9% 18% auto;
+  width: min(34vw, 380px);
+  height: min(34vw, 380px);
+  border: 1px solid color-mix(in srgb, var(--first-color) 48%, var(--border-color));
+  border-radius: 50%;
+  background: radial-gradient(circle, transparent 54%, color-mix(in srgb, var(--first-color) 20%, transparent) 55% 56%, transparent 57%), linear-gradient(135deg, transparent 49.7%, color-mix(in srgb, var(--first-color) 45%, transparent) 50%, transparent 50.3%);
+  opacity: .9;
+}
+.home.container::after { right: 12%; top: 24%; opacity: 1; }
+.intro { max-width: 58%; }
+
+/* Experience: a quiet vertical career timeline, distinct from the education directory. */
+#work .tabs { display: grid; grid-template-columns: minmax(220px, .38fr) minmax(0, 1fr); gap: 2rem; }
+#work .tab__list { display: flex; flex-direction: column; gap: 0; margin: 0; padding: 0 0 0 1rem; border: 0; border-left: 1px solid var(--border-color); background: transparent; }
+#work .tab { position: relative; padding: .25rem 0; background: transparent; }
+#work .tab::before { position: absolute; top: 1.2rem; left: -1.32rem; width: 9px; height: 9px; border: 2px solid var(--body-color); border-radius: 50%; background: #b8bbc8; content: ""; }
+#work .tab.is-active::before { background: var(--first-color); box-shadow: 0 0 0 4px color-mix(in srgb, var(--first-color) 18%, transparent); }
+#work .button { min-height: 52px; padding: .8rem 1rem; border-radius: 8px; font-size: .9rem; }
+#work .tab.is-active { background: transparent; }
+#work .tab.is-active .button { box-shadow: none; color: var(--first-color); }
+#work .tab__panel { min-height: 0; grid-template-columns: 1fr; grid-template-areas: "subtitle" "title" "list" "more"; gap: .75rem; padding: clamp(1.5rem, 3.5vw, 2.5rem); border: 1px solid var(--border-color); border-radius: 14px; background: var(--container-color); box-shadow: var(--shadow); }
+#work .tab__panel-subtitle { display: inline-flex; min-height: 0; justify-self: start; margin: 0; padding: .3rem .75rem; border: 0; border-radius: 6px; background: color-mix(in srgb, var(--first-color) 12%, var(--container-color)); color: var(--first-color); font-size: .78rem; writing-mode: initial; transform: none; }
+#work .tab__panel-title { font-size: clamp(1.4rem, 2.7vw, 1.9rem); }
+#work .tab__panel-list { padding-top: .75rem; border-top: 1px solid var(--border-color); }
+#work .tab__panel-list li { padding: .35rem 0 .35rem 1.2rem; }
+#work .tab__panel-list li::before { content: "•"; }
+
+/* Education: compact selectable study records, styled as stacked academic cards. */
+#education .tabs { display: block; }
+#education .tab__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; margin-bottom: 1.25rem; padding: 0; border: 0; background: transparent; }
+#education .tab { border: 1px solid var(--border-color); border-radius: 12px; background: var(--container-color); }
+#education .button { min-height: 58px; padding: .8rem 1rem; border-radius: inherit; font-size: .86rem; }
+#education .tab.is-active { border-color: var(--first-color); background: color-mix(in srgb, var(--first-color) 7%, var(--container-color)); }
+#education .tab.is-active .button { box-shadow: none; color: var(--first-color); }
+#education .tab__panel { min-height: 0; grid-template-columns: 1fr; grid-template-areas: "subtitle" "title" "list" "more"; gap: .8rem; padding: clamp(1.5rem, 3.5vw, 2.5rem); border: 1px solid var(--border-color); border-radius: 14px; background: var(--container-color); box-shadow: var(--shadow); }
+#education .tab__panel-subtitle { justify-self: start; margin: 0; padding: 0; background: transparent; color: var(--first-color); font-size: .85rem; font-weight: 700; }
+#education .tab__panel-title { font-size: clamp(1.45rem, 2.8vw, 2rem); }
+#education .tab__panel-list { padding-top: .8rem; border-top: 1px solid var(--border-color); }
+#education .tab__panel-list li { padding: 0; }
+#education .tab__panel-list li::before { content: ""; }
+
+@media (max-width: 700px) {
+  .intro { max-width: 100%; }
+  .home.container { min-height: 540px; background-position: 60% center; }
+  .home.container::before { right: 5%; bottom: 9%; width: 245px; height: 245px; }
+  .home.container::after { top: auto; right: 8%; bottom: 18%; width: 175px; height: 135px; }
+  .about__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about__boxes { grid-template-columns: 1fr; }
+  #work .tabs { grid-template-columns: 1fr; gap: 1rem; }
+  #work .tab__list { flex-direction: row; overflow-x: auto; border-left: 0; border-bottom: 1px solid var(--border-color); }
+  #work .tab { flex: 0 0 auto; }
+  #work .tab::before { display: none; }
+  #work .tab.is-active .button { box-shadow: inset 0 -2px var(--first-color); }
+  #education .tab__list { grid-template-columns: 1fr; }
+}
+
+/* Refined hero: restore the code editor backdrop as pure CSS, with no portrait or raster background. */
+.home.container {
+  background-color: var(--container-color);
+  background-image: linear-gradient(color-mix(in srgb, var(--first-color) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--first-color) 5%, transparent) 1px, transparent 1px),
+    radial-gradient(ellipse at 82% 48%, color-mix(in srgb, var(--first-color) 11%, var(--container-color)), transparent 43%);
+  background-size: 34px 34px, 34px 34px, auto;
+}
+.home.container::before { background-color: transparent; }
+
+/* Experience: horizontal milestones feeding into a long-form timeline panel. */
+#work .tabs { display: block; }
+#work .tab__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; overflow: hidden; margin-bottom: 1.4rem; padding: 0; border: 0; border-bottom: 1px solid var(--border-color); border-radius: 0; background: transparent; }
+#work .tab { position: relative; border-radius: 0; }
+#work .button { min-height: 58px; padding: 1rem .75rem; text-align: center; }
+#work .tab.is-active { background: transparent; }
+#work .tab.is-active .button { box-shadow: inset 0 -3px var(--first-color); color: var(--first-color); }
+#work .tab__panel { min-height: 300px; grid-template-columns: 140px minmax(0, 1fr); grid-template-areas: "subtitle title" "subtitle list" "subtitle more"; gap: .7rem 2rem; align-items: start; padding: clamp(1.5rem, 4vw, 3rem); border: 0; border-radius: 0; background: linear-gradient(110deg, color-mix(in srgb, var(--first-color) 10%, var(--container-color)), var(--container-color) 38%); box-shadow: none; }
+#work .tab__panel-subtitle { align-self: stretch; justify-self: stretch; display: grid; place-items: center; min-height: 160px; margin: 0; padding: 1rem; border: 1px solid color-mix(in srgb, var(--first-color) 35%, var(--border-color)); border-radius: 4px; background: transparent; color: var(--first-color); font-size: 1rem; text-align: center; writing-mode: vertical-rl; transform: rotate(180deg); }
+#work .tab__panel-title { align-self: end; margin: 0; font-size: clamp(1.5rem, 3vw, 2.1rem); }
+#work .tab__panel-list li { padding: .35rem 0 .35rem 1.3rem; }
+#work .tab__panel-list li::before { content: "↳"; }
+#work .view-more { margin-top: .3rem; }
+
+/* Education: vertical course selector and an academic record sheet. */
+#education .tabs { grid-template-columns: minmax(220px, .42fr) minmax(0, 1fr); gap: 2.2rem; }
+#education .tab__list { gap: .65rem; padding: 0; border: 0; border-radius: 0; background: transparent; }
+#education .tab { border-radius: 10px; background: transparent; }
+#education .button { position: relative; padding: 1rem 1rem 1rem 1.25rem; border: 1px solid var(--border-color); border-radius: 10px; background: var(--container-color); font-size: .85rem; }
+#education .tab.is-active { background: transparent; }
+#education .tab.is-active .button { border-color: var(--first-color); box-shadow: 4px 0 0 var(--first-color); color: var(--title-color); }
+#education .tab__panel { min-height: 330px; grid-template-columns: 1fr; grid-template-areas: "subtitle" "title" "list" "more"; gap: 1rem; padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--border-color); border-top: 5px solid var(--first-color); border-radius: 4px 4px 18px 18px; background: var(--container-color); box-shadow: var(--shadow); }
+#education .tab__panel-subtitle { margin: 0; padding: 0; background: transparent; color: var(--first-color); font-family: "Space Grotesk", sans-serif; font-size: 1.3rem; letter-spacing: .05em; }
+#education .tab__panel-title { max-width: 600px; margin: 0; font-size: clamp(1.6rem, 3vw, 2.35rem); }
+#education .tab__panel-list { padding: 1rem 0; border-top: 1px solid var(--border-color); }
+#education .tab__panel-list li { padding-left: 0; line-height: 1.85; }
+#education .tab__panel-list li::before { content: ""; }
+#education .view-more { margin-top: 0; }
+
+@media (max-width: 700px) {
+  #work .tab__list { grid-template-columns: repeat(3, minmax(max-content, 1fr)); margin-bottom: 1rem; }
+  #work .tab__panel { grid-template-columns: 1fr; grid-template-areas: "title" "subtitle" "list" "more"; gap: .8rem; }
+  #work .tab__panel-subtitle { display: inline-grid; width: fit-content; min-height: 0; padding: .45rem .8rem; writing-mode: initial; transform: none; }
+  #education .tabs { grid-template-columns: 1fr; gap: 1rem; }
+  #education .tab__list { display: flex; flex-direction: row; overflow-x: auto; padding-bottom: .5rem; }
+  #education .tab { flex: 0 0 auto; max-width: 75vw; }
+}
+
+/* Hero: text-led introduction with abstract CSS-built code motifs. */
+.home.container {
+  position: relative;
+  min-height: min(680px, calc(100vh - 110px));
+  overflow: hidden;
+  background: radial-gradient(ellipse at 83% 48%, color-mix(in srgb, var(--first-color) 10%, var(--container-color)), var(--container-color) 43%);
+}
+.home.container::before {
+  inset: auto 8% 17% auto;
+  width: min(35vw, 390px);
+  height: min(35vw, 390px);
+  border: 1px solid color-mix(in srgb, var(--first-color) 28%, var(--border-color));
+  border-radius: 50%;
+  background: radial-gradient(circle, transparent 51%, color-mix(in srgb, var(--first-color) 9%, transparent) 52% 53%, transparent 54%), linear-gradient(135deg, transparent 49.7%, color-mix(in srgb, var(--first-color) 24%, transparent) 50%, transparent 50.3%);
+  opacity: .85;
+}
+.home.container::after {
+  position: absolute;
+  top: 25%;
+  right: 11%;
+  width: clamp(210px, 24vw, 310px);
+  height: clamp(160px, 18vw, 225px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background: linear-gradient(var(--border-color), var(--border-color)) 0 42px / 100% 1px no-repeat,
+    radial-gradient(circle, #fb7185 0 3px, transparent 4px) 16px 17px / 12px 12px no-repeat,
+    radial-gradient(circle, #fbbf24 0 3px, transparent 4px) 34px 17px / 12px 12px no-repeat,
+    radial-gradient(circle, #34d399 0 3px, transparent 4px) 52px 17px / 12px 12px no-repeat,
+    linear-gradient(90deg, var(--first-color) 0 38%, transparent 38%) 22px 70px / 130px 5px no-repeat,
+    linear-gradient(90deg, var(--text-color) 0 68%, transparent 68%) 22px 90px / 190px 4px no-repeat,
+    linear-gradient(90deg, #34d399 0 27%, transparent 27%) 22px 110px / 110px 4px no-repeat,
+    linear-gradient(90deg, var(--text-color) 0 53%, transparent 53%) 22px 130px / 160px 4px no-repeat,
+    var(--body-color);
+  box-shadow: var(--shadow);
+  content: "";
+  opacity: .9;
+  transform: rotate(5deg);
+  pointer-events: none;
+}
+.intro { position: relative; z-index: 2; max-width: 1000px; grid-template-columns: minmax(0, 1fr); grid-template-areas: "name" "role" "socials" "action"; }
+.home__name { max-width: 700px; }
+.scroll__down { z-index: 2; }
+
+/* Experience and education: image-free timeline style with clear tabs and detail panels. */
+#work .tabs, #education .tabs { grid-template-columns: minmax(180px, .32fr) minmax(0, 1fr); gap: clamp(1rem, 3vw, 2rem); }
+#work .tab__list, #education .tab__list { gap: .5rem; padding: .35rem; border: 1px solid var(--border-color); border-radius: 16px; background: var(--container-color); }
+#work .tab, #education .tab { border-radius: 11px; }
+#work .tab.is-active, #education .tab.is-active { background: var(--section-color); }
+#work .tab.is-active .button, #education .tab.is-active .button { box-shadow: inset 3px 0 var(--first-color); }
+#work .button, #education .button { padding: .85rem 1rem; }
+#work .tab__panel, #education .tab__panel { position: relative; min-height: 310px; grid-template-columns: 1fr; grid-template-areas: "title" "subtitle" "list" "more"; gap: .7rem; border-radius: 18px; box-shadow: var(--shadow); }
+#work .experience-image, #education .education-image { display: none; }
+#work .tab__panel-title, #education .tab__panel-title { font-size: clamp(1.5rem, 3vw, 2rem); }
+#work .tab__panel-list li, #education .tab__panel-list li { padding-block: .3rem; }
+#work .tab__panel-list li::before, #education .tab__panel-list li::before { content: "•"; }
+#work .tab__panel-subtitle, #education .tab__panel-subtitle { padding: .3rem .75rem; border-radius: 999px; }
+
+/* Recent projects: clean three-column gallery with consistent image ratio. */
+#portfolio .portfolio__container { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
+#portfolio .portfolio__card { grid-template-columns: 1fr auto auto; grid-template-rows: auto auto auto; gap: .85rem .55rem; align-items: center; padding: .8rem; border-radius: 17px; background: var(--container-color); }
+#portfolio .portfolio__thumbnail { grid-column: 1 / -1; grid-row: 1; aspect-ratio: 1.45; border-radius: 12px; }
+#portfolio .portfolio__category { grid-column: 1 / -1; grid-row: 2; }
+#portfolio .portfolio__title { grid-column: 1; grid-row: 3; align-self: start; font-size: 1.05rem; }
+#portfolio .portfolio__button, #portfolio .portfolio__github-button { width: 36px; height: 36px; grid-row: 3; margin: 0; }
+#portfolio .portfolio__button { grid-column: 2; }
+#portfolio .portfolio__github-button { grid-column: 3; }
+#portfolio .portfolio__filters { gap: .55rem; margin-bottom: 1.75rem; }
+#portfolio .portfolio__item { padding: .45rem .95rem; border-radius: 999px; }
+
+@media (max-width: 900px) {
+  #portfolio .portfolio__container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home.container::after { right: 7%; opacity: .55; }
+}
+@media (max-width: 700px) {
+  .home.container { min-height: 520px; justify-content: flex-start; padding-top: 4rem; background: radial-gradient(ellipse at 72% 72%, color-mix(in srgb, var(--first-color) 10%, var(--container-color)), var(--container-color) 48%); }
+  .home.container::before { right: 5%; bottom: 8%; width: 245px; height: 245px; }
+  .home.container::after { top: auto; right: 9%; bottom: 15%; width: 190px; height: 145px; }
+  .intro { justify-items: start; text-align: left; }
+  .home__name { font-size: clamp(2.8rem, 12vw, 4rem); }
+  .typewriter-container { text-align: left; }
+  .home__socials { justify-content: flex-start; }
+  .intro > .btn { justify-self: start; }
+  #work .tabs, #education .tabs { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  #work .tab__list, #education .tab__list { flex-direction: row; }
+  #work .tab, #education .tab { flex: 0 0 auto; }
+  #work .tab.is-active .button, #education .tab.is-active .button { box-shadow: inset 0 -3px var(--first-color); }
+  #work .tab__panel, #education .tab__panel { min-height: 0; }
+  #portfolio .portfolio__container { grid-template-columns: 1fr; }
+}
+
+/* Final selectable image tiles for the experience and education sections. */
+#work .tabs, #education .tabs { display: block; }
+#work .tab__list, #education .tab__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 0 0 1.25rem; padding: 0; border: 0; background: transparent; }
+#education .tab__list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+#work .tab, #education .tab { overflow: hidden; padding: 0; border: 1px solid var(--border-color); border-radius: 14px; background: var(--container-color); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+#work .tab:hover, #education .tab:hover { transform: translateY(-3px); }
+#work .tab.is-active, #education .tab.is-active { border-color: var(--first-color); background: var(--container-color); box-shadow: 0 8px 24px color-mix(in srgb, var(--first-color) 14%, transparent); }
+#work .tab::before { display: none; }
+#work .experience-tile-image, #education .education-tile-image { display: block; width: 100%; height: 112px; object-fit: cover; background: var(--section-color); }
+#education .education-tile-image { height: 94px; padding: .65rem; object-fit: contain; }
+#work .button, #education .button { min-height: 64px; padding: .8rem; border-radius: 0; font-size: .83rem; line-height: 1.4; text-align: left; }
+#work .tab.is-active .button, #education .tab.is-active .button { box-shadow: none; color: var(--first-color); }
+#work .tab__panel, #education .tab__panel { min-height: 0; grid-template-columns: minmax(150px, .4fr) minmax(0, 1fr); grid-template-areas: "image subtitle" "image title" "image list" "image more"; gap: .65rem 1.5rem; align-items: start; padding: clamp(1.4rem, 3.5vw, 2.3rem); border: 1px solid var(--border-color); border-radius: 16px; background: var(--container-color); box-shadow: var(--shadow); }
+#work .experience-image, #education .education-image { display: block; width: 100%; height: 100%; min-height: 175px; max-height: 250px; grid-area: image; align-self: center; border: 1px solid var(--border-color); border-radius: 10px; background: var(--section-color); object-fit: cover; }
+#education .education-image { object-fit: contain; padding: .75rem; }
+#work .tab__panel-subtitle { align-self: start; justify-self: start; display: inline-flex; min-height: 0; margin: 0; padding: .3rem .7rem; border: 0; border-radius: 6px; background: var(--section-color); font-size: .8rem; writing-mode: initial; transform: none; }
+#work .tab__panel-title, #education .tab__panel-title { margin: 0; }
+#education .tab__panel-subtitle { justify-self: start; margin: 0; padding: 0; background: transparent; font-size: .85rem; }
+
+@media (max-width: 900px) {
+  #education .tab__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  #work .tab__list { grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; border: 0; }
+  #education .tab__list { grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
+  #work .experience-tile-image, #education .education-tile-image { height: 88px; }
+  #work .button, #education .button { min-height: 56px; padding: .7rem; font-size: .77rem; }
+  #work .tab__panel, #education .tab__panel { grid-template-columns: 1fr; grid-template-areas: "image" "subtitle" "title" "list" "more"; gap: .7rem; }
+  #work .experience-image, #education .education-image { height: 150px; min-height: 0; max-height: 170px; }
+}
+
+/* Keep the hero background and education image crop after every component stylesheet. */
+.home.container {
+  background-image: linear-gradient(90deg, color-mix(in srgb, var(--body-color) 64%, transparent), color-mix(in srgb, var(--body-color) 82%, transparent)), url("./assets/code.gif");
+  background-position: center;
+  background-size: cover;
+}
+#education .education-image,
+#education .education-tile-image {
+  width: 100%;
+  padding: 0;
+  object-fit: cover;
+  object-position: center;
+}
+#education .education-image { height: 100%; min-height: 175px; max-height: 250px; }
+#education .education-tile-image { height: 112px; }
+@media (max-width: 700px) {
+  #education .education-image { height: 150px; min-height: 0; max-height: 170px; }
+  #education .education-tile-image { height: 88px; }
+}
+
+/* Lower the hero photo contrast and use one violet button treatment throughout. */
+.home.container {
+  background-image:
+    linear-gradient(90deg, color-mix(in srgb, var(--body-color) 78%, transparent), color-mix(in srgb, var(--body-color) 86%, transparent)),
+    radial-gradient(circle at 78% 22%, color-mix(in srgb, var(--first-color) 8%, transparent), transparent 30%),
+    linear-gradient(135deg, transparent 49.8%, color-mix(in srgb, var(--first-color) 4%, transparent) 50%, transparent 50.2%),
+    url("./assets/code.gif");
+  background-size: auto, auto, 46px 46px, cover;
+}
+
+.btn,
+.cv-resume,
+.link,
+.link-load,
+.portfolio__button,
+.portfolio__github-button,
+.footer__button,
+.nav__toggle,
+.portfolio__item,
+.button {
+  border: 1px solid var(--first-color);
+  background: var(--first-color);
+  color: var(--contrast-color);
+}
+
+.btn:hover,
+.cv-resume:hover,
+.link:hover,
+.link-load:hover,
+.portfolio__button:hover,
+.portfolio__github-button:hover,
+.portfolio__item:hover,
+.button:hover {
+  border-color: color-mix(in srgb, var(--first-color) 82%, #202334);
+  background: color-mix(in srgb, var(--first-color) 82%, #202334);
+  color: var(--contrast-color);
+}
+
+.portfolio__item-active,
+.tab.is-active .button { background: var(--first-color); color: var(--contrast-color); }
+
+/* Subtle section-specific abstract backdrops, kept beneath all section content. */
+.home.container {
+  background-image:
+    linear-gradient(90deg, color-mix(in srgb, var(--body-color) 54%, transparent), color-mix(in srgb, var(--body-color) 66%, transparent)),
+    radial-gradient(circle at 78% 22%, color-mix(in srgb, var(--first-color) 11%, transparent), transparent 30%),
+    linear-gradient(135deg, transparent 49.8%, color-mix(in srgb, var(--first-color) 5%, transparent) 50%, transparent 50.2%),
+    url("./assets/code.gif");
+  background-size: auto, auto, 46px 46px, cover;
+}
+
+#about.section {
+  background-image:
+    radial-gradient(circle at 92% 15%, color-mix(in srgb, var(--first-color) 7%, transparent) 0 2px, transparent 3px),
+    radial-gradient(circle at 92% 15%, transparent 0 95px, color-mix(in srgb, var(--first-color) 5%, transparent) 96px 97px, transparent 98px),
+    radial-gradient(circle at 8% 85%, color-mix(in srgb, var(--first-color) 4%, transparent), transparent 28%);
+  background-size: 28px 28px, auto, auto;
+}
+
+#services.section {
+  background-image:
+    linear-gradient(135deg, transparent 49.7%, color-mix(in srgb, var(--first-color) 5%, transparent) 50%, transparent 50.3%),
+    radial-gradient(ellipse at 90% 20%, color-mix(in srgb, var(--first-color) 6%, transparent), transparent 30%);
+  background-size: 34px 34px, auto;
+}
+
+#work.section {
+  background-image:
+    linear-gradient(90deg, transparent 0 7%, color-mix(in srgb, var(--first-color) 6%, transparent) 7.05% 7.15%, transparent 7.2%),
+    radial-gradient(circle at 7.1% 24%, color-mix(in srgb, var(--first-color) 10%, transparent) 0 5px, transparent 6px),
+    radial-gradient(circle at 7.1% 54%, color-mix(in srgb, var(--first-color) 8%, transparent) 0 4px, transparent 5px),
+    radial-gradient(circle at 7.1% 82%, color-mix(in srgb, var(--first-color) 8%, transparent) 0 4px, transparent 5px);
+}
+
+#education.section {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--first-color) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--first-color) 4%, transparent) 1px, transparent 1px),
+    radial-gradient(ellipse at 92% 85%, color-mix(in srgb, var(--first-color) 7%, transparent), transparent 32%);
+  background-size: 44px 44px, 44px 44px, auto;
+}
+
+#portfolio.section {
+  background-image:
+    radial-gradient(circle at 90% 18%, color-mix(in srgb, var(--first-color) 8%, transparent) 0 2px, transparent 3px),
+    radial-gradient(circle at 90% 18%, transparent 0 72px, color-mix(in srgb, var(--first-color) 5%, transparent) 73px 74px, transparent 75px),
+    linear-gradient(120deg, transparent 68%, color-mix(in srgb, var(--first-color) 3%, transparent) 68.1%, transparent 68.3%);
+  background-size: 22px 22px, auto, auto;
+}
+
+#contact.section {
+  background-image:
+    radial-gradient(circle at 8% 90%, transparent 0 70px, color-mix(in srgb, var(--first-color) 6%, transparent) 71px 72px, transparent 73px),
+    radial-gradient(circle at 8% 90%, transparent 0 110px, color-mix(in srgb, var(--first-color) 4%, transparent) 111px 112px, transparent 113px),
+    radial-gradient(ellipse at 95% 5%, color-mix(in srgb, var(--first-color) 6%, transparent), transparent 35%);
+}
+
+@media (max-width: 700px) {
+  #work.section { background-position: -1rem 0; }
+  #about.section, #services.section, #education.section, #portfolio.section, #contact.section { background-size: auto; }
+}
+
+/* Final hero overlay keeps the code background intentionally low contrast. */
+.home.container {
+  background-image:
+    linear-gradient(90deg, color-mix(in srgb, var(--body-color) 78%, transparent), color-mix(in srgb, var(--body-color) 85%, transparent)),
+    radial-gradient(circle at 78% 22%, color-mix(in srgb, var(--first-color) 8%, transparent), transparent 30%),
+    linear-gradient(135deg, transparent 49.8%, color-mix(in srgb, var(--first-color) 4%, transparent) 50%, transparent 50.2%),
+    url("./assets/code.gif");
+  background-size: auto, auto, 46px 46px, cover;
+  width: 100%;
+  max-width: none;
+  min-height: min(680px, calc(100vh - 76px));
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+/* Keep the Experience and Education selectors in their original transparent style. */
+#work .button,
+#education .button,
+#work .tab.is-active .button,
+#education .tab.is-active .button {
+  border: 0;
+  background: transparent;
+  color: var(--text-color);
+}
+#work .tab.is-active .button,
+#education .tab.is-active .button { color: var(--first-color); }
+#work .button:hover,
+#education .button:hover { background: transparent; color: var(--first-color); }
+
+#work .view-more .link,
+#education .view-more .link {
+  min-height: 38px;
+  padding: .4rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--first-color);
+  border-radius: 0;
+  background: transparent;
+  color: var(--title-color);
+  box-shadow: none;
+}
+#work .view-more .link:hover,
+#education .view-more .link:hover {
+  border-bottom-color: var(--first-color);
+  background: transparent;
+  color: var(--first-color);
+}
+
+#work .tabs { margin-top: 1rem; }
+#work .tab__list { padding-top: 6px; }
+#work .view-more .link { border-bottom-width: 2px; }
+
+#education .view-more .link { border-bottom-width: 2px; }
+
+/* Larger skills and service icons with light, consistent tile hover feedback. */
+.about__list li {
+  min-height: 58px;
+  padding: .8rem .9rem;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.about__list li:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--first-color) 48%, var(--border-color));
+  box-shadow: var(--shadow);
+}
+.about__list img { width: 26px; height: 26px; }
+.about__list b svg { width: 16px; height: 16px; }
+
+.services__img { width: 58px; height: 58px; }
+.services__card {
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.services__card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--first-color) 48%, var(--border-color));
+  box-shadow: var(--shadow);
+}
+.services__skill { width: 40px; height: 40px; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.services__skill img { width: 22px !important; height: 22px !important; }
+.services__skill:hover { transform: translateY(-3px); border-color: var(--first-color); box-shadow: var(--shadow); }
+
+@media (max-width: 760px) {
+  .services__img { width: 48px; height: 48px; }
+}
+
+#about .about__boxes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+#about .about__box {
+  min-width: 0;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+#about .about__box:hover {
+  transform: translateY(-4px);
+  border-color: var(--first-color);
+  background: color-mix(in srgb, var(--first-color) 5%, var(--container-color));
+  box-shadow: var(--shadow);
+}
+#about .about__box:hover .about__icon { transform: scale(1.08); }
+#about .about__icon { transition: transform .2s ease; }
+
+@media (max-width: 700px) {
+  #about .about__boxes { grid-template-columns: 1fr; }
+}
+
+.nav__logo {
+  display: grid;
+  place-items: center;
+  overflow: visible;
+  border: 1px solid color-mix(in srgb, var(--first-color) 72%, white);
+  border-radius: 14px;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--first-color) 88%, white), var(--first-color) 70%, color-mix(in srgb, var(--first-color) 75%, #302c83));
+  box-shadow: 0 7px 18px color-mix(in srgb, var(--first-color) 25%, transparent);
+  color: #fff;
+  transition: transform .22s ease, box-shadow .22s ease, border-radius .22s ease;
+}
+.nav-logo-icon { width: 27px; height: 27px; color: #fff; transition: transform .22s ease; }
+.nav__logo:hover {
+  transform: translateY(-3px) rotate(-4deg);
+  border-radius: 10px;
+  box-shadow: 0 12px 25px color-mix(in srgb, var(--first-color) 38%, transparent);
+}
+.nav__logo:hover .nav-logo-icon { transform: scale(1.12); }
+.nav__logo:focus-visible { outline: 3px solid color-mix(in srgb, var(--first-color) 45%, transparent); outline-offset: 4px; }
+
+.nav__logo {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  overflow: visible;
+  border: 1px solid color-mix(in srgb, var(--first-color) 72%, white);
+  border-radius: 14px;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--first-color) 88%, white), var(--first-color) 70%, color-mix(in srgb, var(--first-color) 75%, #302c83));
+  box-shadow: 0 7px 18px color-mix(in srgb, var(--first-color) 25%, transparent);
+  color: #fff;
+}
+.nav-logo-icon { width: 27px; height: 27px; color: #fff; transition: transform .22s ease; }
+.nav__logo:hover {
+  transform: translateY(-3px) rotate(-4deg);
+  border-radius: 10px;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--first-color) 88%, white), var(--first-color) 70%, color-mix(in srgb, var(--first-color) 75%, #302c83));
+  box-shadow: 0 12px 25px color-mix(in srgb, var(--first-color) 38%, transparent);
+}
+.nav__logo:hover .nav-logo-icon { transform: scale(1.12); }
+.home__name strong { color: var(--first-color); font-weight: inherit; }
+
+/* Put Education's active accent beside the label, matching the Experience selector. */
+#education .tab.is-active .button {
+  border-color: transparent;
+  box-shadow: inset 3px 0 var(--first-color);
+  color: var(--first-color);
+  padding-left: calc(.8rem + 3px);
+}
+
+/* Use distinct base colors for project and repository actions. */
+#portfolio .portfolio__button {
+  border-color: var(--first-color);
+  background: var(--first-color);
+  color: var(--contrast-color);
+}
+#portfolio .portfolio__github-button {
+  border-color: #37394d;
+  background: #37394d;
+  color: #fff;
+}
+
+#education .tab.is-active .button {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  padding-left: .8rem;
+  box-shadow: none;
+}
+#education .tab.is-active .button::before {
+  width: 3px;
+  height: 1.25rem;
+  flex: 0 0 3px;
+  border-radius: 4px;
+  background: var(--first-color);
+  content: "";
+}
+
+#portfolio .portfolio__button,
+#portfolio .portfolio__github-button {
+  transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+#portfolio .portfolio__button:hover,
+#portfolio .portfolio__github-button:hover {
+  transform: translateY(-3px);
+  border-color: var(--first-color);
+  background: var(--first-color);
+  color: var(--contrast-color);
+  box-shadow: 0 7px 16px color-mix(in srgb, var(--first-color) 24%, transparent);
+}
+
+#education .tab__panel-list li { padding-left: 0; }
+#education .tab__panel-list li::before {
+  position: static;
+  display: inline-block;
+  margin-right: .5rem;
+  color: var(--first-color);
+  content: "•";
+}
+
+/* Alternate the two existing code GIFs every 60 seconds with a soft crossfade. */
+.home.container { background-image: radial-gradient(ellipse at 78% 22%, color-mix(in srgb, var(--first-color) 8%, transparent), transparent 30%), linear-gradient(135deg, transparent 49.8%, color-mix(in srgb, var(--first-color) 4%, transparent) 50%, transparent 50.2%); }
+.hero-background { position: absolute; z-index: 0; inset: 0; overflow: hidden; pointer-events: none; }
+.hero-background::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--body-color) 82%, transparent), color-mix(in srgb, var(--body-color) 88%, transparent));
+  content: "";
+}
+.hero-background__image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.hero-background__image--first { animation: hero-background-first 120s ease-in-out infinite; }
+.hero-background__image--second { animation: hero-background-second 120s ease-in-out infinite; }
+@keyframes hero-background-first {
+  0%, 49.1% { opacity: 1; }
+  50.9%, 99.1% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes hero-background-second {
+  0%, 49.1% { opacity: 0; }
+  50.9%, 99.1% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-background__image { animation: none; }
+  .hero-background__image--first { opacity: 1; }
+  .hero-background__image--second { opacity: 0; }
+}
+
+/* A subtle violet divider between the hero and About sections. */
+#about.section {
+  position: relative;
+}
+#about.section::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(92%, 1080px);
+  height: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--first-color) 52%, transparent) 18% 82%, transparent);
+  content: "";
+  pointer-events: none;
+}
+
+/* Desktop navigation keeps its original layout with a clearer violet hover. */
+@media (min-width: 701px) {
+  .nav__link:hover {
+    border-color: color-mix(in srgb, var(--first-color) 24%, transparent);
+    background: color-mix(in srgb, var(--first-color) 12%, var(--container-color));
+    color: var(--first-color);
+  }
+}

@@ -1,6 +1,5 @@
 import React from 'react';
 import './About.css';
-import Image from '../../assets/a.jpg';
 import Resume from '../../assets/MyCv.pdf';
 import AboutBox from './AboutBox';
 import { SiSkillshare, SiCodeigniter } from 'react-icons/si';
@@ -33,7 +32,6 @@ const About = () => {
         <section className="about container section" id="about">
             <h2 className="section__title">About Me</h2>
             <div className="about__container grid">
-                <img src={Image} alt="" className='about__img' />
                 <div className="about__data grid">
                     <div className="about__info">
                         <p className="about__description">
